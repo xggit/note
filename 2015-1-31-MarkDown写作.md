@@ -44,7 +44,7 @@ git clone https://github.com/tpope/vim-markdown
 
 
 ## 参考资料
-> + [MarkDown中文文档](http://wowubuntu.com/markdown/)A
+> + [MarkDown中文文档](http://wowubuntu.com/markdown/)
 > + [MarkDown快速入门](http://wowubuntu.com/markdown/basic.html)
 
 [1]: https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl
