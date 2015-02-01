@@ -1,11 +1,11 @@
-# MardDown写作
+# MarkDown写作
 ---
 
 平时记性就不太好，所以记笔记是很好的"治疗方式"。最近看到markdown，相当好用，以后就都用这个来写笔记好了。
 
 ## 写作环境
 
-+ ### vim
+### vim
 
 自从开始学习python后我开始使用VIM，**大神们推荐**，我还只是刚入门，确实就开始喜欢上它了。网上有大量的学习资料。
 使用vim编码以外，用来Markdown写作也很好，可以配置语法高亮: **[vim-markdown](https://github.com/tpope/vim-markdown)**。
@@ -13,7 +13,7 @@
 cd ~/.vim/bundle
 git clone https://github.com/tpope/vim-markdown
 ```
-+ ### chrome插件 [MarkDown Preview Plus][1]
+### chrome插件 [MarkDown Preview Plus][1]
 
 当你开始写markdown时，用什么来时时的查看显示呢？这里有很多工具可以用：
 > + [马克飞象](http://maxiang.info)
