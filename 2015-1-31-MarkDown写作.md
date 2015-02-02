@@ -33,11 +33,11 @@ git clone https://github.com/tpope/vim-markdown
 
 ![Chrome设置允许打开文件网址](./images/20150131_01.png)
 
-打开一个文件可以拖拽进入Chrome, 但我更喜欢在命令行里：
+打开一个文件可以拖拽进入Chrome, 但我更喜欢在命令行里(Mac)：
 
 	$ open -a Google\ Chorome filename
 
-这样，我就能变写变看了。是不是很棒？
+这样，我就能边写边看了。是不是很棒？
 看看效果图：
 
 ![效果](./images/20150131_02.png)
