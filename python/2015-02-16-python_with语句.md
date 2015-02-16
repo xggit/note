@@ -42,7 +42,61 @@ with open(r'somefileName') as somefile:
 		# ...more code
 ```
 这里不管在处理文件过程中是否发生异常，都能保证 with 语句执行完毕后已经关闭了打开的文件句柄。
+   
+    
+---
+更新：
 
+## contextlib模块
+contextlib 模块提供了3个对象：装饰器 contextmanager、函数 nested 和上下文管理器 closing。使用这些对象，可以对已有的生成器函数或者对象进行包装，加入对上下文管理协议的支持，避免了专门编写上下文管理器来支持 with 语句。
+
+### 1. @contextmanager
+contextmanager 用于对生成器函数进行装饰，生成器函数被装饰以后，返回的是一个上下文管理器，其 __enter__() 和 __exit__() 方法由 contextmanager 负责提供，而不再是之前的迭代子。被装饰的生成器函数只能产生一个值，否则会导致异常 RuntimeError；如果使用了 as 子句的话, 产生的值会赋值给 as 子句中的 target。
+
+```python
+from contextlib import contextmanager
+
+@contextmanager
+def demo():
+    print "run demo"
+    yield '*** contextmanager demo ***'
+    print "end demo"
+
+with demo() as value:
+    print "================"
+    print 'Assigned Value: %s' % value
+    print "----------------"
+```
+这里要注意他们的输出顺序,查看输出：
+```
+run demo
+================
+Assigned Value: *** contextmanager demo ***
+----------------
+end demo
+```
+
+### 2. nested
+nested函数的作用就是将多个上下文管理器组织在一起，避免使用嵌套 with 语句。
+    
+	with nested(A(), B(), C()) as (X, Y, Z):
+         # with-body code here
+
+需要注意的是，发生异常后，如果某个上下文管理器的 __exit__() 方法对异常处理返回 False，则更外层的上下文管理器不会监测到异常。
+
+### 3. closing上下文管理器
+closing上下文管理器会将包装的对象赋值给 as 子句的 target 变量，同时保证打开的对象在 with-body 执行完后会关闭掉。closing 上下文管理器包装起来的对象必须提供 close() 方法的定义，否则执行时会报 AttributeError 错误。closing 适用于提供了 close() 实现的对象，比如网络连接、数据库连接等，也可以在自定义类时通过接口 close() 来执行所需要的资源“清理”工作。
+
+```python
+import urllib, sys
+from contextlib import closing
+
+with closing(urllib.urlopen('http://www.yahoo.com')) as f:
+    for line in f:
+        sys.stdout.write(line)
+```
+
+  
 
 
 ## 参考资料：
