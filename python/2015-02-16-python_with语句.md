@@ -18,7 +18,7 @@ class controlled_execution:
 with controlled_execution() [as things]:
         do something
 ```
-python会首先运行enter里的代码，返回thing，作为as 后面的变量值，然后再运行with模块中的代码，最后会自动执行exit中的代码，而不管with中的代码运行结果如何。它能简化try-finally语句。所以with通常用在读取文件的操作中，将文件句柄的关闭操作放在exit方法中，这样就不会因忘记释放文件句柄而产生可能出现的错误。
+python会首先运行enter里的代码，返回things，作为as 后面的变量值，然后再运行with模块中的代码，最后会自动执行exit中的代码，而不管with中的代码运行结果如何。它能简化try-finally语句。所以with通常用在读取文件的操作中，将文件句柄的关闭操作放在exit方法中，这样就不会因忘记释放文件句柄而产生可能出现的错误。
 
 另外as things的things可以是单个变量，或者由“()”括起来的元组（不能是仅仅由“,”分隔的变量列表，必须加“()”）。
 
