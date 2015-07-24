@@ -20,7 +20,9 @@ done
 
 + 使用adb logcat 获取关键字上下文打印信息
 
-    adb logcat -c && adb logcat | grep -C 80 -B 80 "Build fingerprint" > crash_log.txt
+```bash
+adb logcat -c && adb logcat | grep -C 80 -B 80 "Build fingerprint" > crash_log.txt
+```
 
 android ndk时crash位置会有关键词”Build fingerprint”, -C 80 -B 80是上下80行打印都输出
 
