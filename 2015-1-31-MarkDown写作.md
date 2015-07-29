@@ -31,7 +31,7 @@ git clone https://github.com/tpope/vim-markdown
 把他添加到你Chrome里，插件管理里设置允许卡开文件网址。
 这个App还可以设置允许设置自动刷新, CSS式样。
 
-![Chrome设置允许打开文件网址](./images/20150131_01.png)
+![Chrome设置允许打开文件网址](./.images/20150131_01.png)
 
 打开一个文件可以拖拽进入Chrome, 但我更喜欢在命令行里(Mac)：
 
@@ -40,7 +40,7 @@ git clone https://github.com/tpope/vim-markdown
 这样，我就能边写边看了。是不是很棒？
 看看效果图：
 
-![效果](./images/20150131_02.png)
+![效果](./.images/20150131_02.png)
 
 
 ## 参考资料
