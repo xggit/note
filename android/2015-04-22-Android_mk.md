@@ -43,3 +43,35 @@ NDK简单的将你的原文件组织到多个”模块”中，每个模块可�
     $ ndk-build -B V=1   # 强制性的重新编译并显示命令
 
 
+--* 2015-06-05 update *--
+
+## 使用命令行创建项目
+
+1. SDK根目录下执行 tools/android list targets
+
+2. 执行创建命令：
+
+```
+android create project --target <target-id> --name MyFirstApp \
+--path <path-to-workspace>/MyFirstApp --activity MyActivity \
+--package com.example.myfirstapp
+```
+<target-id>为第一步里展示的。
+
+
+-- *2015-07-28 update* --
+
+## 使用ant命令行打包
+
+首先确保安装了ANT到环境，加入ANT_ROOT/bin到环境变量
+
+```
+android update project --name <project name> --target <target_id> --path <path_for_project>
+# 这样就会产生build.xml, local.properties两文件。
+# 如果添加了第三方包，需要添加--subprojects参数
+
+ant debug # 打包一个测试apk  默认使用debug key签名
+ant release # 生成一个未签名和未aligned的apk
+
+adb install -r ./bin/XXX.apk  # adb 安装
+```
