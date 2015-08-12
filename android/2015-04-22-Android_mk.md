@@ -31,6 +31,13 @@ NDK简单的将你的原文件组织到多个”模块”中，每个模块可�
 - 产生的机器码所对应的CPU架构。
 - 可选的信息，像你要构建release还是debug，特殊的C或 C++编译参数以及其它需要应用到所有模块的构建选项。
 
+例如要为ndk代码添加include<iostream>的支持：
+
+```
+#stl port
+APP_STL := gnustl_static
+```
+
 这个文件是可选的：默认情况下，NDK将构建在Android.mk中列出的所有模块的并且默认面向CPUABI (armeabi).
 
 将它放在$PROJECT/jni/Application.mk位置，那么它会被’ndk-build’脚本自动使用。
